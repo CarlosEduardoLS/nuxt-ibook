@@ -8,7 +8,11 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'Uma nova maneira de ler livros online!' },
+      {
+        hid: 'description',
+        name: 'description',
+        content: 'Uma nova maneira de ler livros online!',
+      },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
@@ -17,7 +21,7 @@ export default {
   css: ['normalize.css/normalize.css', '@/assets/scss/base.scss'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
+  plugins: ['@/plugins/accessor'],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: [{ path: '@/components', pathPrefix: false }],
@@ -32,7 +36,11 @@ export default {
   modules: ['@nuxtjs/axios', '@nuxtjs/style-resources'],
 
   styleResources: {
-    scss: ['@/components/bosons/*.scss']
+    scss: ['@/components/bosons/*.scss'],
+  },
+
+  axios: {
+    baseUrl: 'https://ibook-api.herokuapp.com',
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
